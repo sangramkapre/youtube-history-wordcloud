@@ -35,5 +35,4 @@ python youtube_history_wordcloud.py
 
 Here is what I got from my YouTube history:
 
-![Youtube History WordCloud]
-(https://github.com/sangramkapre/youtube-history-wordcloud/blob/master/youtube_history_wordcloud.png)
+![Youtube History WordCloud](https://github.com/sangramkapre/youtube-history-wordcloud/blob/master/youtube_history_wordcloud.png)
