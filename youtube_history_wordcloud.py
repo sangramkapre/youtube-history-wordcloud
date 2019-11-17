@@ -4,6 +4,7 @@ import re
 from wordcloud import WordCloud, STOPWORDS
 from PIL import Image
 import numpy as np
+import sys
 
 
 ################################################################
@@ -22,11 +23,26 @@ output_image_name = "<< ENTER OUTPUT FILE PATH HERE >>"
 # e.g. output_image_name = "youtube_history_wordcloud.png"
 
 ################################################################
+# to check if inputs are provided
+if history_file == "<< ENTER CHROME HISTORY FILE PATH HERE >>":
+    sys.exit("\n\nError! Path to Chrome browser's history file is not updated.\n\n")
+
+if output_image_name == "<< ENTER OUTPUT FILE PATH HERE >>":
+    sys.exit("\n\nError! Path to WordCloud output image is not updated.\n\n")
+
+if not unwanted_words:
+    print ("\n\nWarning: List of unwanted words to be ignored from WordCloud is empty.\n\n")
+
+################################################################
 
 # get chrome history (make sure to close all CHROME tabs before executing)
 con = sqlite3.connect(history_file)
 c = con.cursor()
-c.execute("select url, title, visit_count, last_visit_time from urls") #Change this to your prefered query
+try:
+    c.execute("select url, title, visit_count, last_visit_time from urls") #Change this to your prefered query
+except sqlite3.OperationalError:
+    sys.exit("\n\nError! Please close Chrome browser and run again.\n\n")
+
 results = c.fetchall()
 
 # filter youtube history
@@ -51,4 +67,6 @@ def create_word_cloud(string):
     cloud.generate(string)
     cloud.to_file(output_image_name)
 
+print ("\n\nCreating the word cloud...\n\n")
 create_word_cloud(youtube_topics)
+print ("\n\nThe word cloud is created: " + output_image_name + "\n\n")
