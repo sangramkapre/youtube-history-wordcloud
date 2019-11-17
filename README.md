@@ -27,6 +27,8 @@ pip install -r requirements.txt
 
 ### Create word cloud from watched YouTube videos!
 
+**Important !**: Make sure to update the youtube_history_wordcloud.py script with appropriate paths to input/output, etc.
+
 ```
 python youtube_history_wordcloud.py
 ```
