@@ -25,7 +25,7 @@ Install required packages from **requirements.txt**:
 pip install -r requirements.txt
 ```
 
-### Create word cloud from YouTube watched videos!
+### Create word cloud from watched YouTube videos!
 
 ```
 python youtube_history_wordcloud.py
@@ -33,6 +33,6 @@ python youtube_history_wordcloud.py
 
 ### Example Output
 
-Here is what I got from my YouTube history:
+Here is what I got from my YouTube history, thanks to ongoing **Champions Leage**, and *Manchester United* being in form :P
 
 ![Youtube History WordCloud](https://github.com/sangramkapre/youtube-history-wordcloud/blob/master/youtube_history_wordcloud.png)
